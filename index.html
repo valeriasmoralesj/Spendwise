@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Spendwise: track income and expenses, and see where your money goes."
+    />
+    <title>Spendwise</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💵</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="top">
+        <h1 class="app-name">Spendwise</h1>
+        <p class="app-tagline">Income, expenses, and where the money goes.</p>
+      </header>
+
+      <!-- The three totals. script.js fills these in. -->
+      <section class="summary" aria-label="Balance summary">
+        <div class="summary-main">
+          <div class="summary-label">Balance</div>
+          <div class="total-balance" id="totalBalance">$0.00</div>
+        </div>
+        <div class="summary-side">
+          <div>
+            <div class="summary-label">Income</div>
+            <div class="summary-amount income" id="totalIncome">$0.00</div>
+          </div>
+          <div>
+            <div class="summary-label">Expenses</div>
+            <div class="summary-amount expense" id="totalExpense">$0.00</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="columns">
+        <div class="left-column">
+          <section class="panel">
+            <h2>Add a transaction</h2>
+
+            <form class="form-grid" id="transactionForm">
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select id="type" name="type">
+                  <option>Income</option>
+                  <option>Expense</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="0.00"
+                  id="amount"
+                  name="amount"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" />
+              </div>
+
+              <div class="form-group">
+                <label for="category">Category</label>
+                <input
+                  type="text"
+                  placeholder="Salary, Groceries"
+                  id="category"
+                  name="category"
+                />
+              </div>
+
+              <!-- script.js writes the validation message here -->
+              <p class="form-error" id="formError" role="alert"></p>
+
+              <input type="submit" class="add-btn" value="Add transaction" />
+            </form>
+          </section>
+
+          <section class="panel">
+            <h2>Spending by category</h2>
+            <!-- script.js builds one row per expense category -->
+            <ul class="category-list" id="categoryList"></ul>
+          </section>
+        </div>
+
+        <section class="panel">
+          <h2>Transactions</h2>
+          <!-- script.js adds one row per transaction -->
+          <ul class="transaction-list" id="transactionList"></ul>
+        </section>
+      </div>
+
+      <!-- CHANGE THIS: put your own name here -->
+      <footer class="footer">
+        <p>Built by Valeria Morales with HTML, CSS, and JavaScript.</p>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
